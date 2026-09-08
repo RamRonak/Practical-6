@@ -1,0 +1,56 @@
+﻿@model WebApplication2.Models.Product
+
+@{
+    ViewBag.Title = "Add Product";
+}
+
+<h2>Add Product</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Category, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Category)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quantity, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, new { @class = "control-label" })
+            @Html.TextAreaFor(model => model.Description, new { @class = "form-control" })
+        </div>
+
+        <br />
+
+        <input type="submit" value="Save" class="btn btn-success" />
+
+        @Html.ActionLink(
+            "Back to List",
+            "Index",
+            null,
+            new { @class = "btn btn-default" }
+        )
+
+    </div>
+}
